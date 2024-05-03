@@ -9,4 +9,8 @@ vim.opt.smartindent = false
 
 vim.g.mapleader = " "
 
+vim.api.nvim_set_hl(0, "LineNr", {fg = "white"})
+vim.api.nvim_set_hl(0, "LineNrAbove", {fg = "#f4dbd6"})
+vim.api.nvim_set_hl(0, "LineNrBelow", {fg = "#b7bdf8"})
+
 
