@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "ruff_lsp" },
+                ensure_installed = { "lua_ls", "ruff" },
             })
         end,
     },
@@ -21,16 +21,12 @@ return {
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
             })
-            lspconfig.ruff_lsp.setup({
-                cmd = { "ruff-lsp" },
-                filetypes = { "python" },
-                root_dir = lspconfig.util.root_pattern(".git", "setup.py"),
-                capabilities = capabilities,
+            lspconfig.ruff.setup({
                 init_options = {
                     settings = {
-                        args = {},
-                    },
-                },
+                        organizeImports = true,
+                        showSyntaxErrors = true,
+                    },},
             })
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
