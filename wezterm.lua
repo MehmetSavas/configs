@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.font = wezterm.font("BerkeleyMono Nerd Font")
-config.font_size = 17.5
+config.font_size = 15.5
 config.automatically_reload_config = true
 config.enable_tab_bar = false
 config.window_close_confirmation = "NeverPrompt"
@@ -19,5 +19,9 @@ config.window_padding = {
 config.initial_cols = 160
 config.initial_rows = 72
 config.enable_scroll_bar = true
+
+config.keys = {
+	{ key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\n") },
+}
 
 return config
